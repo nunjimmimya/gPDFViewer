@@ -31,7 +31,7 @@ public class gPDFViewer
     private const int _widthDefault = 600;
     private const int _heightDefault = 720;
 	private const bool _enableAutoSize = false;
-    private const string _folderDefault = "media";
+    private const string _folderDefault = "Media";
 
     /// <summary>
     /// Insert PDF embedded to the post
