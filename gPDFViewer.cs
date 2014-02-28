@@ -73,13 +73,7 @@ public class gPDFViewer
         ExtensionSettings initialSettings = new ExtensionSettings(_extensionName);
         initialSettings.Help = @"
 <ol>
-<<<<<<< HEAD
-<<<<<<< HEAD
 	<li>Upload media files to your cloud storage</li>
-=======
->>>>>>> 4e06df1eb55d510c2e88612b4078d4f780191691
-=======
->>>>>>> 4e06df1eb55d510c2e88612b4078d4f780191691
 	<li>Add short code to your media: [gviewer file=""yoururl/myfile.pdf""] for pdf or change the extension to other file that supported by Google Docs</li>
 	<li>Customize with the following parameters:
 		<ul>
@@ -133,21 +127,11 @@ public class gPDFViewer
 	}
 
     private static void ProcessMediaTags(ServingEventArgs e, List<ShortCode> shortCodes)
-<<<<<<< HEAD
-<<<<<<< HEAD
     {	
 		// path to media
         string folder = Settings.GetSingleValue("folder");			
 		string path = Utils.RelativeWebRoot + folder.TrimEnd(new char[] {'/'}) + "/";
 		
-=======
-    {
-
->>>>>>> 4e06df1eb55d510c2e88612b4078d4f780191691
-=======
-    {
-
->>>>>>> 4e06df1eb55d510c2e88612b4078d4f780191691
 		// override for feed
 		if (e.Location == ServingLocation.Feed) {
 			path = Utils.AbsoluteWebRoot + folder.TrimEnd(new char[] { '/' }) + "/";			
