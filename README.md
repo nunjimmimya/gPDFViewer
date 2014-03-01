@@ -9,4 +9,4 @@ for its Shortcode functionality.
 
 All you need to do is copy gPDFViewer.cs to blogengine folder\App_Code\Extension Folder and refresh your blogengine to start using it.
 
-Example of using it [gviewer file="http://foo.com/mypdf.pdf"]
+Example of using it [gviewer url="http://foo.com/mypdf.pdf"] or [gviewer file=mypdf.pdf]
