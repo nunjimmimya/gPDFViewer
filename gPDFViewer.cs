@@ -140,9 +140,9 @@ public class gPDFViewer
 		// do replacement for media
 		foreach (ShortCode sc in shortCodes)
 		{
-			string tagName = sc.TagName;
-			string src = sc.GetAttributeValue("file", "");
-			string w = sc.GetAttributeValue("width", "");
+            string tagName = sc.TagName;
+            string key = sc.GetAttributeValue("key","");
+            string w = sc.GetAttributeValue("width", "");
 			string h = sc.GetAttributeValue("height", "");
 
             if (w == "")
@@ -150,12 +150,26 @@ public class gPDFViewer
             if (h == "")
 			h = _heightDefault.ToString();
 
-			string code = "<div align=\"center\"><iframe src=" + 
-                          "\"http://docs.google.com/viewer?url=" + src + "&embedded=true\" " +
-                          "width=\"" + w + "\" height=\"" + h + "\" " + 
-                          "style=\"border: none;\"" + "></iframe></div>";
+			string code = "";
+			switch(key)
+            {
+                case "file" : code = "<div align=\"center\"><iframe src=" + 
+                                     "\"http://docs.google.com/viewer?url=" + Utils.AbsoluteWebRoot.ToString() + "/FILES/Media/" + sc.GetAttributeValue(key, "") + ".axdx&embedded=true\" " +
+                                     "width=\"" + w + "\" height=\"" + h + "\" " + 
+                                     "style=\"border: none;\"" + "></iframe></div>";
+                              break;
 
-             e.Body = e.Body.Replace(sc.Text, code);
+                case "url" : code = "<div align=\"center\"><iframe src=" + 
+                                    "\"http://docs.google.com/viewer?url=" + sc.GetAttributeValue(key, "") + "&embedded=true\" " +
+                                    "width=\"" + w + "\" height=\"" + h + "\" " + 
+                                    "style=\"border: none;\"" + "></iframe></div>";
+                                           
+                             break;
+            }
+
+            //code = "Key: " + key;
+
+            e.Body = e.Body.Replace(sc.Text, code);
 			
 		}	
 	}		
@@ -193,6 +207,7 @@ public class gPDFViewer
 			
 			foreach (Match attrMatch in attrMatches) {
 				sc.Attributes.Add(attrMatch.Groups["attr"].Value, attrMatch.Groups["val"].Value);
+                sc.Attributes.Add("key",attrMatch.Groups["attr"].Value);
 			}
 
 			shortCodes.Add(sc);
