@@ -154,7 +154,7 @@ public class gPDFViewer
 			switch(key)
             {
                 case "file" : code = "<div align=\"center\"><iframe src=" + 
-                                     "\"http://docs.google.com/viewer?url=" + Utils.AbsoluteWebRoot.ToString() + "/FILES/Media/" + sc.GetAttributeValue(key, "") + ".axdx&embedded=true\" " +
+                                     "\"http://docs.google.com/viewer?url=" + Utils.AbsoluteWebRoot.ToString() + "FILES/Media/" + sc.GetAttributeValue(key, "") + ".axdx&embedded=true\" " +
                                      "width=\"" + w + "\" height=\"" + h + "\" " + 
                                      "style=\"border: none;\"" + "></iframe></div>";
                               break;
